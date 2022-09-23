@@ -1,0 +1,9 @@
+import pandas as pd
+x=['xyz','ABC']
+df=pd.DataFrame(x)
+print(df)
+
+df=pd.read_csv("Salaries.csv")
+print(df)
+df.head(10)
+df.tail(4)
