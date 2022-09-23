@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+
+x=np.arange(0,3*np.pi,0.1)
+print (x)
+y=np.sin(x)
+print(y)
+plt.plot(x,y)
+plt.show()
+
+x=np.arange(0,3*np.pi,0.1)
+print (x)
+y=np.tan(x)
+print(y)
+plt.plot(x,y)
+plt.show()
+
+x=np.arange(0,3*np.pi,0.1)
+print (x)
+y=np.cos(x)
+print(y)
+plt.plot(x,y)
+plt.show()
