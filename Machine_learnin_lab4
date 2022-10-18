@@ -1,0 +1,46 @@
+import numpy as np
+import pandas as pd
+df=pd.read_csv("/Social_Network_Ads.csv")
+df.head()
+
+
+from sklearn import preprocessing
+le= preprocessing.LabelEncoder()
+df["Gender"]=le.fit_transform(df["Gender"])
+df.head()
+
+
+X=df.iloc[:,1:4].values
+print(X)
+Y=df.iloc[:,4].values
+print(Y)
+
+
+from sklearn.model_selection import train_test_split
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.25)
+print(X_train)
+print(X_test)
+print(Y_train)
+print(Y_test)
+
+
+
+from sklearn.linear_model import LogisticRegression
+logreg=LogisticRegression()
+logreg.fit(X_train,Y_train)
+logreg.fit(X_train,Y_train)
+Y_pred=logreg.predict(X_test)
+print(Y_pred)
+print(Y_test)
+
+
+
+
+from sklearn import metrics
+cnf_matrix=metrics.confusion_matrix(Y_test,Y_pred)
+cnf_matrix
+print("Accuracy",metrics.accuracy_score(Y_test,Y_pred))
+print("Precision",metrics.precision_score(Y_test,Y_pred))
+print("Recall",metrics.recall_score(Y_test,Y_pred))
+print("F1_score",metrics.f1_score(Y_test,Y_pred))
+
